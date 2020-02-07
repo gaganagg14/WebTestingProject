@@ -1,0 +1,63 @@
+1) Regarding web-test project -
+
+##Created Maven project and added all dependencies in pom.xml required to run the project. Below Added new libraries with detailed description
+##To run test-cases -> Run testNG.xml file
+	*Currently added 2 browsers - Firefox and Chrome, both are running in parallel
+	*Tested the project in MAC machine. Taking same time as intial version and running in both browsers.
+	*Added OS capability to handle in project
+
+# Converted web-test JUNIT to testNG -
+
+    <dependency>
+    	<groupId>org.testng</groupId>
+    	<artifactId>testng</artifactId>
+    	<version>6.9.10</version>
+    <scope>compile</scope>
+</dependency>
+
+**Advantages - 
+	* Provides DataProvider so that run test cases with different inputs. Reading test data from separate file.
+	* Run in crossbrowser at same time and parallelly
+	* Provides Reporting so that we can sent to stakeholders
+
+# Using PageFactory to separate out all webpage elements from test cases.
+# Create WebPageUtils defined Webdriver functions and handling exceptions - For more reusability in project.
+# Using Java System.getProperty - To check which OS test case running - So accordingly chromedriver/geckodriver will pick for MAC/Windows
+# Adding Javadocs to know what test case does
+ 
+# For logging - Added Log4J library
+
+<dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.17</version>
+</dependency>
+
+**Advantages - 
+	* Faster than console print
+	* Logs can be stored in file 
+	* We can define log Levels - DEBUG, ERROR, INFO
+
+# Generating random values for insignificant test data
+
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.9</version>
+</dependency>
+
+**Generating random values for name, surname etc.
+
+# For saving screenshots, using FileUtils
+
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.6</version>
+</dependency>
+
+**Failed Screenshots can be attached to email and send to all stakeholders
+
+#### Know to extend this project to Jenkins so that we can run from Jenkins
+#### As more and more test cases added, we need more parallel - Can add Selenium Grid and Dockerize selenium and project so that we can start more browsers parallely
+
